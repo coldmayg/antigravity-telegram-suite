@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🤖 Antigravity Telegram Suite (Русская версия)
+# 🤖 Antigravity Telegram Suite
 
 **Работает как с [Antigravity Standalone App](https://antigravity.google/), так и с [Antigravity IDE](https://antigravity.google/).**
 
