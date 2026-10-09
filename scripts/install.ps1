@@ -75,9 +75,9 @@ function Setup-Env {
         (Get-Content $envFile) -replace '^ALLOWED_CHAT_ID=$', "ALLOWED_CHAT_ID=$chatId" | Set-Content $envFile
     }
 
-    $lang = Read-Host "  Language [en/tr] (default: en)"
+    $lang = Read-Host "  Language [ru/en/tr/zh/ko/de/es/fr] (default: ru)"
     if ($lang) {
-        (Get-Content $envFile) -replace '^LANGUAGE=en$', "LANGUAGE=$lang" | Set-Content $envFile
+        (Get-Content $envFile) -replace '^LANGUAGE=ru$', "LANGUAGE=$lang" | Set-Content $envFile
     }
 
     Write-Host "[+] .env configured" -ForegroundColor Green

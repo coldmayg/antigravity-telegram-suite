@@ -53,6 +53,19 @@ assert.deepStrictEqual(
     'Korean locale keys should match English locale keys'
 );
 
+// Test Russian
+loadLocale('ru');
+assert.strictEqual(getLang(), 'ru', 'Language should be set to ru');
+assert.strictEqual(t('status.running_status'), '🟢 РАБОТАЕТ', 'Russian translation failed');
+assert.strictEqual(t('agent.swipe_to_reply'), '<i>(Смахните сообщение влево, чтобы ответить этому агенту)</i>', 'Russian swipe text failed');
+
+const ruLocale = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'locales', 'ru.json'), 'utf8'));
+assert.deepStrictEqual(
+    collectKeys(ruLocale).sort(),
+    collectKeys(enLocale).sort(),
+    'Russian locale keys should match English locale keys'
+);
+
 // Test fallback / missing
 const missing = t('this.key.does.not.exist');
 assert.strictEqual(missing, 'this.key.does.not.exist', 'Missing key should return the key itself');
@@ -66,3 +79,6 @@ loadLocale('tr');
 assert.strictEqual(t('app.error_save'), 'Hata: Tercih kaydedilemedi.', 'Turkish error_save missing');
 loadLocale('ko');
 assert.strictEqual(t('app.error_save'), '오류: 선호 설정을 저장할 수 없습니다.', 'Korean error_save missing');
+loadLocale('ru');
+assert.strictEqual(t('app.error_save'), 'Ошибка: не удалось сохранить настройки.', 'Russian error_save missing');
+

@@ -123,7 +123,7 @@ function loadSavedLang() {
             if (saved) return saved;
         }
     } catch (e) {}
-    return process.env.LANGUAGE || 'en';
+    return process.env.LANGUAGE || 'ru';
 }
 
 function saveLangState(langCode) {
@@ -3722,6 +3722,7 @@ bot.command('lang', async (ctx) => {
     }
     
     const langMap = {
+        'ru': '🇷🇺 Русский',
         'en': '🇬🇧 English',
         'zh': '🇨🇳 中文',
         'tr': '🇹🇷 Türkçe',
@@ -4374,7 +4375,7 @@ async function setMenuOnAllScopes() {
     const langs = fs.readdirSync(path.join(__dirname, '..', 'locales'))
         .filter(f => f.endsWith('.json'))
         .map(f => f.replace('.json', ''));
-    const defaultLang = process.env.LANGUAGE || 'en';
+    const defaultLang = process.env.LANGUAGE || 'ru';
     const originalLang = getLang(); // Save the user's active language
 
     // Helper to register commands for a specific language and scope

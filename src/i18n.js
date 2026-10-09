@@ -2,17 +2,17 @@ const fs = require('fs');
 const path = require('path');
 
 let currentLocale = {};
-let currentLang = 'en';
+let currentLang = 'ru';
 
 /**
  * Load a locale file by language code.
- * @param {string} lang - Language code ('en', 'tr', etc.)
+ * @param {string} lang - Language code ('ru', 'en', 'tr', etc.)
  */
 function loadLocale(lang) {
     const localePath = path.join(__dirname, '..', 'locales', `${lang}.json`);
     if (!fs.existsSync(localePath)) {
-        console.warn(`[i18n] Locale file not found: ${localePath}, falling back to 'en'`);
-        lang = 'en';
+        console.warn(`[i18n] Locale file not found: ${localePath}, falling back to 'ru'`);
+        lang = fs.existsSync(path.join(__dirname, '..', 'locales', 'ru.json')) ? 'ru' : 'en';
     }
     const fallbackPath = path.join(__dirname, '..', 'locales', `${lang}.json`);
     currentLocale = JSON.parse(fs.readFileSync(fallbackPath, 'utf-8'));

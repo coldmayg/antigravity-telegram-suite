@@ -101,9 +101,9 @@ setup_env() {
         rm -f "$PROJECT_DIR/.env.bak"
     fi
 
-    read -rp "  Language [en/tr] (default: en): " user_lang
+    read -rp "  Language [ru/en/tr/zh/ko/de/es/fr] (default: ru): " user_lang
     if [ -n "$user_lang" ]; then
-        sed -i.bak "s/^LANGUAGE=en$/LANGUAGE=$user_lang/" "$PROJECT_DIR/.env"
+        sed -i.bak "s/^LANGUAGE=ru$/LANGUAGE=$user_lang/" "$PROJECT_DIR/.env"
         rm -f "$PROJECT_DIR/.env.bak"
     fi
 
